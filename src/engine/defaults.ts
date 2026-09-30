@@ -9,8 +9,8 @@ export const DEFAULT_INPUTS: Inputs = {
   schoolYears: 5,
 
   respStartAge: 12,
-  respPerYear: 5_000,
-  parentTfsaPerSchoolYear: 3_000,
+  respPerYear: 0,
+  parentTfsaPerSchoolYear: 8_000,
   topUpRespFromParent: false,
 
   parentMarginalRate: 0.4571,
@@ -24,7 +24,7 @@ export const DEFAULT_INPUTS: Inputs = {
   workIncomeAfterStudies: 60_000,
 
   realReturn: 0.06,
-  inflation: 0,
+  inflation: 0.02,
   distributionYield: 0.02,
 
   annuityPayoutRate: 0.066,

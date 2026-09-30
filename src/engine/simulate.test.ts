@@ -1,9 +1,12 @@
 import { describe, expect, it } from "vitest";
-import { ANNUITY_AGE, DEFAULT_INPUTS, HOME_AGE } from "./defaults";
+import { ANNUITY_AGE, DEFAULT_INPUTS as APP_DEFAULTS, HOME_AGE } from "./defaults";
 import { optimize } from "./optimizer";
 import { grantsForYear, initialGrantState } from "./resp";
 import { simulate } from "./simulate";
 import { ACCOUNTS } from "./types";
+
+// Tests need RESP money in play, whatever the app's defaults are
+const DEFAULT_INPUTS = { ...APP_DEFAULTS, respPerYear: 5_000, parentTfsaPerSchoolYear: 3_000 };
 
 describe("RESP grants", () => {
   it("starts with $2,500 of room per year since birth ((1 + age) × $2,500 in the first year)", () => {

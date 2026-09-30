@@ -1,0 +1,111 @@
+:root {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: #1f2937;
+  background: #f8fafc;
+  line-height: 1.45;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+.app { max-width: 1400px; margin: 0 auto; padding: 1rem; }
+header h1 { margin: 0.5rem 0; font-size: 1.8rem; }
+header p { margin: 0 0 1rem; color: #4b5563; }
+
+main { display: grid; grid-template-columns: 360px 1fr; gap: 1.5rem; align-items: start; }
+@media (max-width: 900px) { main { grid-template-columns: 1fr; } }
+
+aside { position: sticky; top: 0.5rem; max-height: calc(100vh - 1rem); overflow-y: auto; padding-right: 0.25rem; }
+@media (max-width: 900px) { aside { position: static; max-height: none; } }
+
+.actions { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 0.75rem; }
+button {
+  font: inherit; padding: 0.45rem 0.8rem; border-radius: 6px;
+  border: 1px solid #cbd5e1; background: white; cursor: pointer;
+}
+button:hover { background: #f1f5f9; }
+button.primary { background: #2563eb; border-color: #2563eb; color: white; }
+button.primary:hover { background: #1d4ed8; }
+
+.suggestion { background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 8px; padding: 0.75rem; margin-bottom: 0.75rem; }
+.suggestion h3 { margin: 0 0 0.25rem; font-size: 1rem; }
+.suggestion ul { margin: 0.25rem 0; padding-left: 1.2rem; }
+
+.inputs details { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.5rem 0.75rem; margin-bottom: 0.5rem; }
+.inputs summary { font-weight: 600; cursor: pointer; }
+.field { margin: 0.6rem 0; }
+.field label { display: block; font-size: 0.9rem; font-weight: 500; }
+.field small { display: block; color: #6b7280; font-size: 0.78rem; margin-top: 0.15rem; }
+.input-unit { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.2rem; }
+.input-unit input { flex: 1; font: inherit; padding: 0.35rem 0.5rem; border: 1px solid #cbd5e1; border-radius: 6px; min-width: 0; }
+.input-unit span { color: #6b7280; font-size: 0.85rem; min-width: 3.5rem; }
+.field.computed { display: flex; flex-wrap: wrap; justify-content: space-between; font-size: 0.9rem; color: #4b5563; }
+.field.computed output { font-weight: 600; }
+.field.computed small { flex-basis: 100%; }
+.field.toggle label { display: flex; gap: 0.5rem; align-items: flex-start; font-weight: 400; }
+
+.results { min-width: 0; }
+.results h2 { font-size: 1.2rem; margin: 1.5rem 0 0.5rem; }
+
+.headline { background: white; border: 1px solid #e2e8f0; border-radius: 10px; padding: 1rem 1.25rem; }
+.headline p { margin: 0.25rem 0; }
+.headline .big { font-size: 2.6rem; font-weight: 700; color: #1d4ed8; }
+.headline .big span { font-size: 1.1rem; font-weight: 400; color: #4b5563; }
+
+.kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+.kpis div { background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.6rem 0.8rem; }
+.kpis dt { font-size: 0.8rem; color: #6b7280; }
+.kpis dd { margin: 0; font-size: 1.2rem; font-weight: 600; }
+
+.notes h3 { font-size: 1rem; margin: 1rem 0 0.25rem; }
+.notes p { margin: 0.25rem 0; }
+.warn { background: #fffbeb; border: 1px solid #fde68a; border-radius: 6px; padding: 0.5rem 0.75rem; margin-top: 0.75rem !important; }
+
+.chart { position: relative; height: 360px; background: white; border: 1px solid #e2e8f0; border-radius: 8px; padding: 0.5rem; }
+
+.table-wrap { overflow-x: auto; background: white; border: 1px solid #e2e8f0; border-radius: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 0.85rem; font-variant-numeric: tabular-nums; }
+th, td { padding: 0.35rem 0.5rem; text-align: right; border-bottom: 1px solid #f1f5f9; white-space: nowrap; }
+thead th { background: #f8fafc; position: sticky; top: 0; }
+th[scope="row"] { text-align: left; }
+caption { text-align: left; padding: 0.5rem; color: #4b5563; }
+td.current { background: #dbeafe; font-weight: 700; }
+
+.section-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 0.5rem; }
+.dollar-toggle { display: inline-flex; border: 1px solid #cbd5e1; border-radius: 6px; overflow: hidden; }
+.dollar-toggle button { border: none; border-radius: 0; }
+.dollar-toggle button + button { border-left: 1px solid #cbd5e1; }
+.dollar-toggle button.active { background: #2563eb; color: white; }
+.audit { margin-top: 0.75rem; }
+.tabs { display: flex; gap: 0.25rem; border-bottom: 1px solid #cbd5e1; margin-bottom: 0.5rem; }
+.tabs button { border: 1px solid transparent; border-bottom: none; border-radius: 6px 6px 0 0; background: transparent; margin-bottom: -1px; }
+.tabs button.active { background: white; border-color: #cbd5e1; font-weight: 600; }
+.balances-table { max-height: 520px; width: fit-content; max-width: 100%; }
+.balances-table table { width: auto; }
+.audit-head { display: flex; gap: 1rem; align-items: flex-start; justify-content: space-between; }
+.audit-head p { margin: 0 0 0.5rem; color: #4b5563; font-size: 0.85rem; }
+.audit-table { max-height: 520px; }
+.audit-table thead tr:first-child th { top: 0; z-index: 2; }
+.audit-table thead tr:nth-child(2) th { top: 1.95rem; z-index: 2; white-space: normal; min-width: 6.5rem; max-width: 9rem; vertical-align: bottom; }
+.audit-table th.group { text-align: center; border-left: 2px solid #e2e8f0; background: #eef2f7; }
+.audit-table .sticky-col { position: sticky; left: 0; background: white; z-index: 1; }
+.audit-table thead .sticky-col { background: #f8fafc; z-index: 3; }
+.audit-table tr.final td, .audit-table tr.final th { background: #eff6ff; font-weight: 600; }
+.audit-table tr.milestone td, .audit-table tr.milestone th { background: #f0fdf4; }
+.transfer-log { margin-top: 1rem; }
+.transfer-log summary { font-weight: 600; cursor: pointer; margin-bottom: 0.5rem; }
+.transfer-log .table-wrap { max-height: 480px; width: fit-content; max-width: 100%; }
+.transfer-log table { width: auto; }
+.transfer-log td { text-align: left; }
+.transfer-log thead th { text-align: left; }
+.transfer-log thead th:nth-child(4), .transfer-log td.amount { text-align: right; }
+.transfer-log td.note { white-space: normal; min-width: 16rem; max-width: 32rem; }
+.transfer-log tbody { border-top: 2px solid #e2e8f0; }
+.transfer-log th[scope="rowgroup"] { vertical-align: top; text-align: left; }
+.transfer-log tr.tax td { color: #b91c1c; }
+
+.hypotheses { margin-top: 1.5rem; }
+.hypotheses summary { font-weight: 600; cursor: pointer; }
+.hypotheses h3 { font-size: 1rem; margin-bottom: 0.25rem; }
+.hypotheses li { margin: 0.2rem 0; }
+.disclaimer { color: #6b7280; font-size: 0.85rem; margin-top: 1rem; }
